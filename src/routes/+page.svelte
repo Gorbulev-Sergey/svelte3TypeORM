@@ -4,13 +4,13 @@
 	import { refreshAll } from '$app/navigation';
 
 	let { data } = $props();
-	let newPost = $state<Post>({} as Post);
+	let newPost = $state<Post>({});
 
-	async function createPost(p: Post) {
+	async function createPost(post: Post) {
 		const res = await fetch('/api/posts', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(p)
+			body: JSON.stringify(post)
 		});
 		return await res.json();
 	}
@@ -32,6 +32,9 @@
 			<button
 				class="btn btn-sm btn-dark text-light"
 				onclick={async () => {
+					newPost.description = '';
+					newPost.cover = '';
+					newPost.userId = '';
 					await createPost(newPost).then(async () => {
 						newPost = new Post();
 						refreshAll();

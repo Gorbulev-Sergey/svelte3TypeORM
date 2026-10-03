@@ -15,10 +15,10 @@ export class Post {
 	title?: string;
 
 	@Column({ type: 'text' })
-	description?: string | null;
+	description?: string;
 
 	@Column({ type: 'varchar', length: 255 })
-	cover?: string | null;
+	cover?: string;
 
 	@Column({ type: 'text' })
 	content?: string;
@@ -33,5 +33,5 @@ export class Post {
 	updatedAt?: Date;
 
 	@Column({ type: 'varchar', length: 255 })
-	userId?: string | null;
+	userId?: string;
 }
