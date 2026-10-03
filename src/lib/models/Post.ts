@@ -11,20 +11,17 @@ export class Post {
 	@PrimaryGeneratedColumn('uuid')
 	id?: string;
 
-	@Column({ type: 'varchar', length: 255 })
+	@Column({ type: 'text' })
 	title?: string;
 
 	@Column({ type: 'text' })
 	description?: string;
 
-	@Column({ type: 'varchar', length: 255 })
+	@Column({ type: 'text' })
 	cover?: string;
 
 	@Column({ type: 'text' })
 	content?: string;
-
-	@Column({ default: true })
-	isPublished?: boolean;
 
 	@CreateDateColumn()
 	createdAt?: Date;
@@ -32,6 +29,6 @@ export class Post {
 	@UpdateDateColumn()
 	updatedAt?: Date;
 
-	@Column({ type: 'varchar', length: 255 })
+	@Column({ type: 'text' })
 	userId?: string;
 }
