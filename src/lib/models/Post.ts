@@ -15,6 +15,12 @@ export class Post {
 	title?: string;
 
 	@Column({ type: 'text' })
+	description?: string | null;
+
+	@Column({ type: 'varchar', length: 255 })
+	cover?: string | null;
+
+	@Column({ type: 'text' })
 	content?: string;
 
 	@Column({ default: true })
@@ -25,4 +31,7 @@ export class Post {
 
 	@UpdateDateColumn()
 	updatedAt?: Date;
+
+	@Column({ type: 'varchar', length: 255 })
+	userId?: string | null;
 }
