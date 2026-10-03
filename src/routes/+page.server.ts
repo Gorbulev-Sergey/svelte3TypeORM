@@ -5,7 +5,7 @@ export async function load() {
 	let postsRepository = db.getRepository(Post);
 	let posts = await postsRepository.find({ order: { createdAt: 'DESC' } });
 
-	console.log(posts);
+	//console.log(posts);
 	return {
 		posts: posts.map((p) => ({
 			id: p.id,
