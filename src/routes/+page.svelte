@@ -65,19 +65,34 @@
 						<div class="d-flex flex-column gap-1 bg-light p-2 rounded">
 							<div class="d-flex align-items-center justify-content-between">
 								<b class="text-uppercase">{post.title}</b>
-								<button
-									class="btn btn-sm btn-danger text-dark"
-									onclick={async () => {
-										await fetch('/api/posts', {
-											method: 'DELETE',
-											headers: { 'Content-Type': 'application/json' },
-											body: JSON.stringify({ id: post.id })
-										}).then((_) => refreshAll());
-									}}
-								>
-									<b>Удалить</b>
-								</button>
+								<div class="d-flex align-items-center gap-2">
+									<button
+										class="btn btn-sm btn-danger text-dark"
+										onclick={async () => {
+											await fetch('/api/posts', {
+												method: 'DELETE',
+												headers: { 'Content-Type': 'application/json' },
+												body: JSON.stringify({ id: post.id })
+											}).then((_) => refreshAll());
+										}}
+									>
+										<b>Удалить</b>
+									</button>
+								</div>
 							</div>
+							{#if post.createdAt}
+								<small>
+									{new Date(post.createdAt).toLocaleDateString('ru-ru', {
+										weekday: 'short',
+										day: 'numeric',
+										month: 'long',
+										year: 'numeric'
+									})}
+								</small>
+							{/if}
+							{#if post.description}
+								<div class="small text-secondary">{@html post.description}</div>
+							{/if}
 							{#if post.cover}
 								<div
 									class="rounded-1"
