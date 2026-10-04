@@ -14,5 +14,16 @@ export default defineConfig({
 
 			adapter: adapter()
 		})
-	]
+	],
+	ssr: {
+		noExternal: ['typeorm'],
+		external: [
+			'pg',
+			'pg-native',
+			'pg-connection-string',
+			'pg-pool',
+			'pg-protocol',
+			'reflect-metadata'
+		]
+	}
 });
