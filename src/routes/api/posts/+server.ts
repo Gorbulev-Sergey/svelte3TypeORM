@@ -9,14 +9,17 @@ export async function GET() {
 }
 
 export async function POST({ request }) {
-	const { title, content, isPublished = true } = await request.json();
+	const { title, description, cover, content, isPublished = true, userId } = await request.json();
 
 	try {
 		const posts = db.getRepository(Post);
 		const newPost = posts.create({
 			title: title.trim(),
+			description: description,
+			cover: cover,
 			content: content || '',
-			isPublished
+			isPublished,
+			userId: userId
 		});
 
 		const savedPost = await posts.save(newPost);
