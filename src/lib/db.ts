@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { Post } from './models/Post';
 
-export const db = new DataSource({
+export const db1 = new DataSource({
 	type: 'postgres',
 	host: 'localhost',
 	port: 5432,
@@ -12,3 +12,12 @@ export const db = new DataSource({
 	entities: [Post],
 	synchronize: true // в проде — только миграции
 });
+
+export const db = new DataSource({
+	type: 'postgres',
+	url: 'postgres://gorbulevsv:9Element@pg4.sweb.ru:5433/gorbulevsv',
+	entities: [Post],
+	synchronize: true // в проде — только миграции
+});
+
+// "postgres://gorbulevsv:9Element@pg4.sweb.ru:5433/gorbulevsv"

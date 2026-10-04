@@ -11,18 +11,24 @@ export class Post {
 	@PrimaryGeneratedColumn('uuid')
 	id?: string;
 
-	@Column({ type: 'varchar', length: 255 })
+	@Column({ type: 'text' })
 	title?: string;
 
 	@Column({ type: 'text' })
-	content?: string;
+	description?: string;
 
-	@Column({ default: true })
-	isPublished?: boolean;
+	@Column({ type: 'text' })
+	cover?: string;
+
+	@Column({ type: 'text' })
+	content?: string;
 
 	@CreateDateColumn()
 	createdAt?: Date;
 
 	@UpdateDateColumn()
 	updatedAt?: Date;
+
+	@Column({ type: 'text' })
+	userId?: string;
 }

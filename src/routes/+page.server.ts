@@ -10,10 +10,13 @@ export async function load() {
 		posts: posts.map((p) => ({
 			id: p.id,
 			title: p.title,
+			description: p.description,
+			cover: p.cover,
 			content: p.content,
 			isPublished: p.isPublished,
 			createdAt: p.createdAt,
-			updatedAt: p.updatedAt
+			updatedAt: p.updatedAt,
+			userId: p.userId
 		}))
 	};
 }
