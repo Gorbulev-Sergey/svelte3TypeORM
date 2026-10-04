@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-vercel';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 //import 'reflect-metadata';
@@ -14,17 +14,5 @@ export default defineConfig({
 
 			adapter: adapter()
 		})
-	],
-	ssr: {
-		noExternal: ['typeorm'],
-		external: [
-			'pg',
-			'pg-native',
-			'pg-connection-string',
-			'pg-pool',
-			'pg-protocol',
-			'reflect-metadata',
-			'tslib'
-		]
-	}
+	]
 });
