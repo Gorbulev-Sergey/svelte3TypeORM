@@ -23,7 +23,8 @@ export default defineConfig({
 			'pg-connection-string',
 			'pg-pool',
 			'pg-protocol',
-			'reflect-metadata'
+			'reflect-metadata',
+			'tslib'
 		]
 	}
 });
