@@ -1,0 +1,4 @@
+# netlify.toml
+[functions]
+included_files = ["node_modules/pg/**/*", "node_modules/pg-pool/**/*", "node_modules/pg-connection-string/**/*", "node_modules/pg-protocol/**/*"]
+node_bundler = "esbuild"
